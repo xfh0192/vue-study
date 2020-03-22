@@ -8,8 +8,12 @@
 
 <script>
 import Schema from 'async-validator'
+import mixin from '@/utils/mixin'
 
 export default {
+    name: 'KFormItem',
+    componentName: 'KFormItem',
+    mixins: [mixin],
     inject: ['form'],
     props: {
         label: {

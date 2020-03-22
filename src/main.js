@@ -1,7 +1,8 @@
 import Vue from 'vue'
 import App from './App.vue'
 import './plugins/element.js'
-import {create} from '@/utils/create'
+// import {create} from '@/utils/create'
+import {create} from '@/utils/create-extend'
 
 Vue.config.productionTip = false
 // 事件总线
