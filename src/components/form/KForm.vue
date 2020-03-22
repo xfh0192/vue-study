@@ -1,41 +1,42 @@
 <template>
-  <div>
-    <slot></slot>
-  </div>
+    <div>
+        <slot></slot>
+    </div>
 </template>
 
 <script>
 export default {
-  provide() {
-    return {
-      // 将表单实例直接传递给后代
-      form: this
-    };
-  },
-  props: {
-    model: {
-      type: Object,
-      required: true
+    provide() {
+        return {
+            form: this,
+        }
     },
-    rules: Object
-  },
-  methods: {
-    validate(cb) {
-      // 全局校验
+    props: {
+        model: Object,
+        rules: Object,
+    },
+    data() {
+        return {
+            
+        }
+    },
+    methods: {
+        validate(cb) {
+            // 全局校验
 
-      // 1.遍历所有FormItem，执行他们的validate方法
-      // tasks是Promise数组
-      const tasks = this.$children
-        .filter(item => item.prop)
-        .map(item => item.validate());
+            // 1. 遍历所有FormItem，执行他们的validate方法
+            const tasks = this.$children
+                .filter(item => item.prop)
+                .map(child => child.validate())
 
-      Promise.all(tasks)
-        .then(() => cb(true))
-        .catch(() => cb(false));
+            return Promise.all(tasks)
+                .then(() => cb(true))
+                .catch(() => cb(false))
+        }
     }
-  }
-};
+}
 </script>
 
-<style scoped>
+<style>
+
 </style>

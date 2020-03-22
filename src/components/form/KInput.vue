@@ -1,30 +1,34 @@
 <template>
-  <div>
-    <!-- 双向数据绑定：@input, :value -->
-    <input :value="value" @input="onInput" v-bind="$attrs">
-  </div>
+    <div>
+        <input :value="value" @input="onInput" v-bind="$attrs"/>
+    </div>
 </template>
 
 <script>
-  export default {
+export default {
     inheritAttrs: false,
     props: {
-      value: {
-        type: String,
-        default: ''
-      },
+        value: {
+            type: String,
+            default: '',
+        }
+    },
+    data() {
+        return {
+
+        }
     },
     methods: {
         onInput(e) {
-          this.$emit('input', e.target.value)
+            this.$emit('input', e.target.value)
 
-          // 实时校验，通知父组件
-          this.$parent.$emit('validate')
+            // 实时校验，通知父组件
+            this.$parent.$emit('validate')      // 作业1：不用$parent降低耦合
         }
-      },
-  }
+    }
+}
 </script>
 
-<style lang="scss" scoped>
+<style>
 
 </style>

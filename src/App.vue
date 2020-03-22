@@ -13,9 +13,9 @@
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-import communication from '@/components/communication';
-import SlotExample from '@/components/slots'
+// import HelloWorld from './components/HelloWorld.vue'
+// import communication from '@/components/communication';
+// import SlotExample from '@/components/slots'
 import FormExample from '@/components/form'
 
 export default {
@@ -28,9 +28,9 @@ export default {
     }
   },
   components: {
-    HelloWorld,
-    communication,
-    SlotExample,
+    // HelloWorld,
+    // communication,
+    // SlotExample,
     FormExample
   },
   mounted () {
