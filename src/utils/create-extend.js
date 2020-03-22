@@ -7,10 +7,11 @@ export function create(component, props) {
 
     // 实例化，生成dom
     let comp = new vmConstruct().$mount()
-
+    
     // 插入body
     document.body.appendChild(comp.$el);
     
+    // 因为用Vue.extend生成的是组件构造函数，实例化之后就是根组件（并不是根实例，不需要comp.$children[0]）
     // 销毁方法
     comp.remove = () => {
         document.body.removeChild(comp.$el)
