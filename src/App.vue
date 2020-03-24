@@ -9,6 +9,7 @@
     <!-- <communication></communication> -->
     <!-- <slot-example></slot-example> -->
     <form-example></form-example>
+    <!-- <TreeNode :data="folderTree"></TreeNode> -->
   </div>
 </template>
 
@@ -17,6 +18,7 @@
 // import communication from '@/components/communication';
 // import SlotExample from '@/components/slots'
 import FormExample from '@/components/form'
+import TreeNode from '@/components/recursion/TreeNode'
 
 export default {
   name: 'app',
@@ -31,7 +33,19 @@ export default {
     // HelloWorld,
     // communication,
     // SlotExample,
-    FormExample
+    FormExample,
+    TreeNode,
+  },
+  data() {
+      return {
+          folderTree: {
+                name: '文件夹1', 
+                children: [
+                    {name: '文件夹1-1', children: [{name: '文件夹1-1-1'}, {name: '文件夹1-1-2'}]},
+                    {name: '文件夹1-2'}
+                ]
+          }
+      }
   },
   mounted () {
     // this.$children[0].xx = 'ooooooooxxxxxxxxx';
