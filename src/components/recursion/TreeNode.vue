@@ -2,9 +2,9 @@
     <div>
         <h3>{{data.name}}</h3>
         <!-- 有条件嵌套 -->
-        <template v-if="data.children">
+        <!-- <template v-if="data.children">
             <tree-node v-for="row in data.children" :key="row.name" :data="row"></tree-node>
-        </template>
+        </template> -->
     </div>
 </template>
 
