@@ -3,10 +3,11 @@ import Vue from 'vue'
 export function create(component, props) {
 
     // 创建组件的构造函数
-    let vmConstruct = Vue.extend(Object.assign({}, component, {data: () => props}))
+    // let vmConstruct = Vue.extend(Object.assign({}, component, {data: () => props}))
+    let vmConstruct = Vue.extend(component)
 
     // 实例化，生成dom
-    let comp = new vmConstruct().$mount()
+    let comp = new vmConstruct({propsData: props}).$mount()
     
     // 插入body
     document.body.appendChild(comp.$el);

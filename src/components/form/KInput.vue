@@ -5,12 +5,12 @@
 </template>
 
 <script>
-import mixin from '@/utils/mixin'
+import emitter from '@/mixins/emitter'
 
 export default {
     name: 'KInput',
     inheritAttrs: false,
-    mixins: [mixin],
+    mixins: [emitter],
     props: {
         value: {
             type: String,

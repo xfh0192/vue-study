@@ -8,20 +8,17 @@
 
 <script>
 export default {
-    // props: {
-    //     title: String,
-    //     message: String,
-    //     duration: {
-    //         type: Number,
-    //         default: 2000,
-    //     },
-    // },
+    props: {
+        title: String,
+        message: String,
+        duration: {
+            type: Number,
+            default: 3000,
+        },
+    },
     data() {
         return {
             showNotice: false,      
-            title: '',
-            message: '',
-            duration: 3000,
         }
     },
     methods: {
