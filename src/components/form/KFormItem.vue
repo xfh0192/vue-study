@@ -8,7 +8,7 @@
 
 <script>
 import Schema from 'async-validator'
-import emitter from '@/mixins/emitter'
+import emitter from '@/mixins/emitter.js'
 
 export default {
     name: 'KFormItem',

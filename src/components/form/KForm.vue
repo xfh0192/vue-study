@@ -5,9 +5,10 @@
 </template>
 
 <script>
-import emitter from '@/mixins/emitter'
+import emitter from '@/mixins/emitter.js'
 
 export default {
+    componentName: 'KForm',
     mixins: [emitter],
     provide() {
         return {

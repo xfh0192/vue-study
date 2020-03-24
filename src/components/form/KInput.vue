@@ -5,10 +5,11 @@
 </template>
 
 <script>
-import emitter from '@/mixins/emitter'
+import emitter from '@/mixins/emitter.js'
 
 export default {
     name: 'KInput',
+    componentName: 'KInput',
     inheritAttrs: false,
     mixins: [emitter],
     props: {

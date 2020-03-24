@@ -9,7 +9,7 @@
     <!-- <communication></communication> -->
     <!-- <slot-example></slot-example> -->
     <form-example></form-example>
-    <!-- <tree></tree> -->
+    <tree></tree>
   </div>
 </template>
 
@@ -17,8 +17,8 @@
 // import HelloWorld from './components/HelloWorld.vue'
 // import communication from '@/components/communication';
 // import SlotExample from '@/components/slots'
-import FormExample from '@/components/form'
-import tree from '@/components/recursion/index'
+import FormExample from '@/components/form/index.vue'
+import tree from '@/components/recursion/index.vue'
 
 export default {
   name: 'app',
@@ -59,7 +59,7 @@ export default {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
+  /* text-align: center; */
   color: #2c3e50;
   margin-top: 60px;
 }
