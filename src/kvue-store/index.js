@@ -15,7 +15,7 @@ let store = new Vuex.Store({
     },
     getters: {
         doubleCount(state) {
-            return state * 2
+            return state.count * 2
         }
     },
     actions: {

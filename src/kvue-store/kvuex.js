@@ -3,12 +3,28 @@ import Vue from 'vue'
 class Store {
     constructor(options) {
         this.$options = options
+        this._wrappedGetters = options.getters
+        this.getters = {}
+        
+        const computed = {}
+        const store = this      // 保存指针
+        for (let key in this._wrappedGetters) {
+            let fn = store._wrappedGetters[key]
+            computed[key] = function() {
+                return fn.call(this, store.state)
+            }
+
+            Object.defineProperty(store.getters, key, {
+                get: () => store._vm[key]
+            })
+        }
 
         // 使state中的数据成为响应式数据
         this._vm = new Vue({
             data: {
-                $$state: options.state
-            }
+                $$state: options.state,
+            },
+            computed: computed
         })
 
         // 保存mutations
@@ -16,7 +32,7 @@ class Store {
         this._actions = options.actions
         
         // 绑定commit、dispatch方法中的this到Store实例上
-        const store = this;
+        // const store = this;
         const {commit, dispatch} = store
         this.commit = function boundCommit(type, payload) {
             commit.call(store, type, payload)

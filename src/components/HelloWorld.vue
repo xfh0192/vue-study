@@ -4,7 +4,7 @@
     <!-- Store类得有commit方法可以执行mutation -->
     <p @click="$store.commit('add')">{{$store.state.count}}</p>
     <p @click="$store.dispatch('asyncAdd')">async:{{$store.state.count}}</p>
-    <!-- <p>{{$store.getters.doubleCount}}</p> -->
+    <p>{{$store.getters.doubleCount}}</p>
 
     <p>{{xx}}</p>
     <button @click="sayHi">say hi</button>
