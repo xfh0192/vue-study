@@ -8,8 +8,12 @@
     </HelloWorld> -->
     <!-- <communication></communication> -->
     <!-- <slot-example></slot-example> -->
-    <form-example></form-example>
-    <tree></tree>
+    <!-- <form-example></form-example> -->
+    <!-- <tree></tree> -->
+
+    <router-link to="/">home</router-link>
+    <router-link to="/about">about</router-link>
+    <router-view/>
   </div>
 </template>
 
