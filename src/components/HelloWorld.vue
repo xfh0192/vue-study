@@ -2,8 +2,8 @@
   <div>
     <!-- store是哪来的，state是响应式的 -->
     <!-- Store类得有commit方法可以执行mutation -->
-    <!-- <p @click="$store.commit('add')">{{$store.state.count}}</p> -->
-    <!-- <p @click="$store.dispatch('asyncAdd')">async:{{$store.state.count}}</p> -->
+    <p @click="$store.commit('add')">{{$store.state.count}}</p>
+    <p @click="$store.dispatch('asyncAdd')">async:{{$store.state.count}}</p>
     <!-- <p>{{$store.getters.doubleCount}}</p> -->
 
     <p>{{xx}}</p>
@@ -34,11 +34,11 @@
       }
     },
     mounted() {
-    //   console.log(this.$store);
+      console.log(this.$store);
       
       setTimeout(() => {
         // this.$store.state = {}
-        // this.$store.state.count++
+        this.$store.state.count++
       }, 1000);
       
       // 监听事件
