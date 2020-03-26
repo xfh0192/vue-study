@@ -11,21 +11,48 @@ class KVueRouter {
         this.$options = options
 
         // 设置一个响应式的current属性  【mark】
-        Vue.util.defineReactive(this, 'current', '/')
+        // Vue.util.defineReactive(this, 'current', '/')
+        Vue.util.defineReactive(this, 'matched', [])
+        this.current = window.location.hash.slice(1) || '/'
+        this.match()
         
         window.addEventListener('hashchange', this.onHashChange.bind(this))
         window.addEventListener('load', this.onHashChange.bind(this))
 
         // 对路由数组做预处理：转换为map
-        this.routeMap = {}
-        this.$options.routes.forEach(route => {
-            this.routeMap[route.path] = route
-        })
+        // this.routeMap = {}
+        // this.$options.routes.forEach(route => {
+        //     this.routeMap[route.path] = route
+        // })
+        
     }
 
     onHashChange() {
         let hash = window.location.hash.slice(1)
         this.current = hash
+        this.matched = []
+        this.match()
+
+        // console.log(this.matched)
+    }
+
+    match(routes) {
+        routes = routes || this.$options.routes
+
+        for (const route of routes) {
+            if (route.path === '/' && this.current === '/') {
+                this.matched.push(route)
+                return;
+            }
+            
+            if (route.path !== '/' && this.current.includes(route.path)) {
+                this.matched.push(route)
+                if (route.children) {
+                    this.match(route.children)
+                }
+                return
+            }
+        }
     }
 }
 
